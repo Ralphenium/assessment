@@ -2,6 +2,7 @@ package technology.assessment.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import technology.assessment.model.dto.ItemDTO;
 import technology.assessment.model.dto.response.ApiResponse;
@@ -20,6 +21,7 @@ import static technology.assessment.util.ParamName.SIZE_DEFAULT;
 @RequestMapping(BASE)
 @RequiredArgsConstructor
 public class ItemController {
+
     private final ItemService itemService;
 
     @PostMapping(ADD)
