@@ -1,4 +1,4 @@
-package technology.assessment.model.dto;
+package technology.assessment.model.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,11 +10,13 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class ItemDTO {
+@NoArgsConstructor
+public class ItemResponse {
     private Long id;
     private String name;
     private String description;
     private BigDecimal price;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

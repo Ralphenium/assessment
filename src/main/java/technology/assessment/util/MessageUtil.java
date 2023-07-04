@@ -9,5 +9,7 @@ public class MessageUtil {
     public final static String  RECORD_NOT_FOUND = "Record not found";
     public final static String  UPDATED = "Record updated successfully";
     public final static String  ITEM = "Item";
+    public final static String  DONE = "Record created successfully";
+    public final static String  DELETED = "Record deleted successfully";
 }
 
