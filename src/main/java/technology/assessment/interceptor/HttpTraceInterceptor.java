@@ -11,7 +11,9 @@ import technology.assessment.kafka.HttpTraceProducer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
@@ -61,9 +63,10 @@ public class HttpTraceInterceptor implements HandlerInterceptor {
 
     private String getHeadersAsString(HttpServletResponse response) {
         HttpHeaders headers = new HttpHeaders();
-        headers.setAll(response.getHeaderNames()
-                .stream()
-                .collect(Collectors.toMap(name -> name, response::getHeader)));
+        response.getHeaderNames().forEach(name -> {
+            List<String> values = new ArrayList<>(response.getHeaders(name));
+            headers.addAll(name, values);
+        });
 
         return headers.toString();
     }
