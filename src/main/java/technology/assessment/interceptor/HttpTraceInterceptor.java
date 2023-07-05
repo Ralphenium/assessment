@@ -43,13 +43,9 @@ public class HttpTraceInterceptor implements HandlerInterceptor {
         trace.append("Request URI: ").append(request.getRequestURI()).append(System.lineSeparator());
         trace.append("Request Headers: ").append(getHeadersAsString(request)).append(System.lineSeparator());
 
-        // ... Capture other relevant request details
-
         // Append response details to the trace
         trace.append("Response Status: ").append(response.getStatus()).append(System.lineSeparator());
         trace.append("Response Headers: ").append(getHeadersAsString(response)).append(System.lineSeparator());
-
-        // ... Capture other relevant response details
 
         return trace.toString();
     }
