@@ -30,12 +30,4 @@ public class SwaggerConfig {
                 .build();
     }
 
-    private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("Retail Service application that supports the creation of a\n" +
-                "item, category, users and bonus management").description("")
-                .termsOfServiceUrl("https://retails.org")
-                .contact(new Contact("Retail Manager", "https://retails.org", "admin@retails.org"))
-                .license("Open Source").licenseUrl("https://retails.org").version("1.0.0").build();
-    }
-
 }
