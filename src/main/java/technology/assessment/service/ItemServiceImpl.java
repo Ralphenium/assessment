@@ -53,7 +53,6 @@ public class ItemServiceImpl implements ItemService{
         return new ApiResponse<>(SUCCESS, CREATED, DONE);
     }
 
-    @CacheEvict(value = "itemsCache", allEntries = true)
     @Override
     public ApiResponse<String> updateItem(ItemDTO payload) {
         Item item = itemRepository.findById(payload.getId()).orElseThrow(() -> new RecordNotFoundException(ITEM_REQUIRED));
@@ -77,7 +76,7 @@ public class ItemServiceImpl implements ItemService{
         return new ApiResponse<>(SUCCESS,OKAY,Mapper.convertList(itemPage.getContent(),ItemResponse.class));
     }
 
-    @Cacheable(value = "itemsCache", key = "#id")
+    @Cacheable(value = "itemsCache")
     @Override
     public ApiResponse<ItemResponse> getItemById(Long id) {
         Item item = itemRepository.findById(id)
